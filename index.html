@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chúc Mừng Sinh Nhật!</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        text-align: center;
+        background-color: #282c34;
+        color: white;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1 {
+        font-size: 3em;
+        animation: colorChange 5s infinite alternate,
+          textMove 2s ease-in-out infinite;
+      }
+
+      @keyframes colorChange {
+        from {
+          color: #ff6347; /* Màu đỏ */
+        }
+        to {
+          color: #87ceeb; /* Màu xanh da trời nhạt */
+        }
+      }
+
+      @keyframes textMove {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(20px);
+        }
+      }
+
+      #horrorImage {
+        display: none;
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="birthdayText">Chúc Mừng Sinh Nhật 2 tình yêu của phòng MKT nha!</h1>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const text = document.getElementById("birthdayText");
+        const horrorImage = document.createElement("img");
+        horrorImage.src = "image_2022-10-27_155259541.png"; // Thay đổi đường dẫn ảnh kinh dị của bạn
+        horrorImage.id = "horrorImage";
+
+        text.addEventListener("animationiteration", function () {
+          // Chạy khi kết thúc một chu kỳ animation (chạy chữ)
+          document.body.appendChild(horrorImage);
+          setTimeout(() => {
+            horrorImage.style.display = "block";
+            text.style.display = "none";
+          }, 1000); // Hiển thị ảnh sau 1 giây (có thể điều chỉnh)
+        });
+      });
+    </script>
+  </body>
+</html>
